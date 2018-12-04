@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "195dafbc-a5dd-493a-ad96-e00b0309abc7",
+		"name": "Configuration - Consul - demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register 9001",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Datacenter\": \"dc1\",\r\n  \"Id\": \"restaurant-us-11001-url1\",\r\n  \"Name\": \"restaurant-us-11001\",\r\n  \"Address\": \"localhost\",\r\n  \"Port\": 9001,\r\n   \"Tags\": [\r\n      \"us\",\r\n      \"11001\",\r\n      \"url1\"\r\n    ],\r\n  \"Service\": {\r\n    \"Service\": \"restaurant-us-11001\"\r\n   \r\n  },\r\n   \"Check\": {\r\n      \"TCP\": \"localhost:9001\",\r\n      \"Interval\": \"30s\",\r\n      \"Timeout\": \"1s\"\r\n  },\r\n  \"SkipNodeUpdate\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8500/v1/agent/service/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8500",
+					"path": [
+						"v1",
+						"agent",
+						"service",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register 9002",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Datacenter\": \"dc1\",\r\n  \"Id\": \"restaurant-us-11001-url2\",\r\n  \"Name\": \"restaurant-us-11001\",\r\n  \"Address\": \"localhost\",\r\n  \"Port\": 9002,\r\n    \"Tags\": [\r\n      \"us\",\r\n      \"11001\",\r\n      \"url2\"\r\n    ],\r\n  \"Service\": {\r\n    \"Service\": \"restaurant-us-11001\"\r\n   \r\n  },\r\n   \"Check\": {\r\n      \"TCP\": \"localhost:9002\",\r\n      \"Interval\": \"30s\",\r\n      \"Timeout\": \"1s\"\r\n  },\r\n  \"SkipNodeUpdate\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8500/v1/agent/service/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8500",
+					"path": [
+						"v1",
+						"agent",
+						"service",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
